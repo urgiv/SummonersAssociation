@@ -16,8 +16,8 @@ Contains two configs: 'Server Config' contains settings related to the reticle f
 If you experience issues with Minion Control Rods' reticle feature, let us know on the homepage; You can continue using this mod by disabling the feature in the 'Server Config'
 
 Changelog:
+v0.5.2.1
+* Fixed a bug where Automatic Minion Loadout Book would not work on respawn if an item was used at the moment of death
+
 v0.5.2
 * Removed Blood Talisman. Reasons: Wasn't working with sentries, on multi segment enemies, and didn't fit with the direction of a QoL mod. It's also a relic of 1.3 when summoner did not have whips and stronger minions.
-
-v0.5.1.8
-* Fixed Loadout Books estimated mana tooltip counting inactive items
