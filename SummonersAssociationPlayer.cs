@@ -78,8 +78,8 @@ namespace SummonersAssociation
 			if (slot != -1) {
 				if (respawn) {
 					//Respawning does not actually clear these, but we have to since we invoke item use immediately
+					Player.SetItemTime(0);
 					Player.itemAnimation = Player.itemAnimationMax = 0;
-					Player.itemTime = 0;
 					Player.reuseDelay = 0;
 					Player.releaseUseItem = true; //Also needed so item use actually registers
 				}
