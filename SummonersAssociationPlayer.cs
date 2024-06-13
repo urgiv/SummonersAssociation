@@ -66,7 +66,7 @@ namespace SummonersAssociation
 
 		public int PendingTargetAssignment { get; set; } = -1;
 
-		private void UseAutomaticLoadoutBook() {
+		private void UseAutomaticLoadoutBook(bool respawn = false) {
 			int slot = -1;
 			for (int i = 0; i < Main.InventorySlotsTotal; i++) {
 				Item item = Player.inventory[i];
@@ -75,7 +75,16 @@ namespace SummonersAssociation
 					if (book.loadout.Sum(x => x.Active ? x.SummonCount : 0) > 0) slot = i;
 				}
 			}
-			if (slot != -1) QuickUseItemInSlot(slot);
+			if (slot != -1) {
+				if (respawn) {
+					//Respawning does not actually clear these, but we have to since we invoke item use immediately
+					Player.itemAnimation = Player.itemAnimationMax = 0;
+					Player.itemTime = 0;
+					Player.reuseDelay = 0;
+					Player.releaseUseItem = true; //Also needed so item use actually registers
+				}
+				QuickUseItemInSlot(slot);
+			}
 		}
 
 		private void UpdateLoadoutBookUI() {
@@ -339,6 +348,6 @@ namespace SummonersAssociation
 				!Player.CCed;
 		}
 
-		public override void OnRespawn() => UseAutomaticLoadoutBook();
+		public override void OnRespawn() => UseAutomaticLoadoutBook(respawn: true);
 	}
 }
