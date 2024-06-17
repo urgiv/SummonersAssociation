@@ -525,15 +525,15 @@ namespace SummonersAssociation.Items
 			}
 		}
 
-		internal static void ResetFriendlyAndChaseable(orig_ProjectileAI orig, Projectile self) {
+		internal static void ResetFriendlyAndChaseable(orig_ProjectileAI orig, Projectile proj) {
 			//Because we keep npc.friendly on true so there are no unintended interactions with the target,
 			//we only set npc.friendly to false when the minions are about to do their AI
 
 			var resetChaseable = new List<int>();
 			var resetFriendly = new List<int>();
 			try {
-				if (self.IsMinionOrSentryRelated) {
-					Player player = Main.player[self.owner];
+				if (proj.IsMinionOrSentryRelated) {
+					Player player = Main.player[proj.owner];
 					if (player != null) {
 						int type = NPCType<MinionTarget>();
 
@@ -557,7 +557,7 @@ namespace SummonersAssociation.Items
 					}
 				}
 
-				orig(self);
+				orig(proj);
 			}
 			finally {
 				foreach (int index in resetChaseable) {
