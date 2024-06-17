@@ -578,10 +578,10 @@ namespace SummonersAssociation.Items
 			}
 		}
 
-		//Reason we are doing a manual hook on ProjectileLoader.ProjectileAI instead of Projectile.AI is because for some reason the hook isn't ran
+		//Reason we are doing a manual hook on ProjectileLoader.ProjectileAI instead of Projectile.AI is because it's inlined
 		//It registers, but breakpoints in it never get hit, yet the AI of projectiles runs fine
-		internal delegate void orig_ProjectileAI(Projectile self);
-		internal delegate void hook_ProjectileAI(orig_ProjectileAI orig, Projectile self);
+		internal delegate void orig_ProjectileAI(Projectile proj);
+		internal delegate void hook_ProjectileAI(orig_ProjectileAI orig, Projectile proj);
 
 		//namespace Terraria.ModLoader //public static class ProjectileLoader //public static void ProjectileAI(Projectile projectile)
 		private static readonly MethodInfo m_ProjectileAI = typeof(ProjectileLoader).GetMethod("ProjectileAI", BindingFlags.Static | BindingFlags.Public);
