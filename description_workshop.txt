@@ -29,6 +29,14 @@ This mod aims to fix a few grievances with summons and flesh out Summoner to be 
 [*] Spawns the minions automatically when you (re)spawn
 [/list]
 
+[h1]Video Showcase[/h1]
+Using the [b]Minion Loadout Book[/b] to set and summon a minion loadout:
+[video mp4=https://github.com/user-attachments/assets/27f1f178-cec3-41ab-972a-56731f8ff728][/video]
+Teleporting minions with the [b]Minion Control Rod[/b]:
+[video mp4=https://github.com/user-attachments/assets/534f2b7c-11be-4634-9098-636023b13e11][/video]
+Targeting a location with the [b]Minion Control Rod[/b]:
+[video mp4=https://github.com/user-attachments/assets/e437c845-bb32-41fe-9ca3-cb103171bebd][/video]
+
 [h1]Other additions[/h1]
 [b]Minion&Sentry Slots Info[/b] - Displays the amount of minions/sentries currently summoned out of the available slots on the right side of your screen, like similar informational accessories
 [b]Minion&Sentry Slots Icon[/b] - Displays the amount of minions/sentries currently summoned above your defense
