@@ -131,7 +131,7 @@ namespace SummonersAssociation
 		//	);
 		//
 		//  Add persistent buff (such as Summoning Potion buff)
-		//  bool toggle = (bool)summonersAssociation.Call(
+		//  summonersAssociation.Call(
 		//		"AddPersistentBuff",
 		//		ModContent.BuffType<MyBuff>()
 		//	);
