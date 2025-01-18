@@ -114,6 +114,11 @@ Mods: {
 					Tooltip: If toggled, makes the reticle from the Minion Control Rod never disappear when going out of range
 				}
 
+				PersistentBuffs: {
+					Label: Enable Persistent Buffs
+					Tooltip: If toggled, makes buffs that provide max minion or sentry slots such as {$ItemName.SummoningPotion} preserve on death or world exit
+				}
+
 				Headers.HintToClientConfig: Hint: To go to the client config containing UI adjustments, press the '<' arrow in the bottom left
 
 				Hint: {

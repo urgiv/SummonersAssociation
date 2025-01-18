@@ -26,6 +26,10 @@ namespace SummonersAssociation
 		[DefaultValue(false)]
 		public bool PersistentReticle;
 
+		[ReloadRequired]
+		[DefaultValue(true)]
+		public bool PersistentBuffs;
+
 		public const float LoadoutBookSpeed_Min = 1f;
 		public const float LoadoutBookSpeed_Max = 20f;
 		[Slider]

@@ -24,6 +24,8 @@ namespace SummonersAssociation
 		
 		internal static bool ProjectileFalse(Projectile p) => false;
 
+		internal static HashSet<int> VanillaPersistentBuffsToRevert;
+
 		/// <summary>
 		/// Array of the different minion book types. Simple is 0, Normal is 1, Auto is 2
 		/// </summary>
@@ -70,20 +72,53 @@ namespace SummonersAssociation
 				[ProjectileID.StormTigerGem] = ProjectileFalse,
 				[ProjectileID.AbigailCounter] = ProjectileFalse
 			};
+
+			VanillaPersistentBuffsToRevert = new HashSet<int>();
 		}
 
-		public override void PostSetupContent()
+		public static void RegisterPersistentBuff(int buffID) {
+			Main.persistentBuff[buffID] = true;
+			Main.buffNoSave[buffID] = false;
+
+			if (buffID < BuffID.Count) {
+				VanillaPersistentBuffsToRevert.Add(buffID);
+			}
+		}
+
+		internal static void RevertVanillaPersistentBuffs() {
+			if (VanillaPersistentBuffsToRevert == null)
+				return;
+
+			//buffNoSave is only checked in Save IO, not Load, meaning that it will still restore the buff, but only once
+			foreach (int buffID in VanillaPersistentBuffsToRevert) {
+				Main.persistentBuff[buffID] = false;
+				Main.buffNoSave[buffID] = true;
+			}
+
+			VanillaPersistentBuffsToRevert = null;
+		}
+
+		public override void PostSetupContent() {
 			//don't change order here (simple is first, normal is second, automatic is third)
-			=> BookTypes = new int[] {
+			BookTypes = new int[] {
 				ModContent.ItemType<MinionLoadoutBookSimple>(),
 				ModContent.ItemType<MinionLoadoutBook>(),
 				ModContent.ItemType<MinionLoadoutBookAuto>()
 			};
 
+			if (ServerConfig.Instance.PersistentBuffs) {
+				RegisterPersistentBuff(BuffID.Bewitched);
+				RegisterPersistentBuff(BuffID.WarTable);
+				RegisterPersistentBuff(BuffID.Summoning);
+			}
+		}
+
 		public override void Unload() {
 			SupportedMinions = null;
 			TeleportConditionMinions = null;
 			BookTypes = null;
+
+			RevertVanillaPersistentBuffs();
 
 			Instance = null;
 		}

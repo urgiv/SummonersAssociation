@@ -127,7 +127,13 @@ namespace SummonersAssociation
 		//
 		//  Get a copy of the stored information about all minions (See SummonersAssociationIntegrationExample.cs for more info)
 		//  var data = (List<Dictionary<string, object>>)summonersAssociation.Call(
-		//		"GetSupportedMinions",
+		//		"GetSupportedMinions"
+		//	);
+		//
+		//  Add persistent buff (such as Summoning Potion buff)
+		//  bool toggle = (bool)summonersAssociation.Call(
+		//		"AddPersistentBuff",
+		//		ModContent.BuffType<MyBuff>()
 		//	);
 		//
 
@@ -150,6 +156,9 @@ namespace SummonersAssociation
 			 * else if "GetSupportedMinions":
 			 * Mod, apiVersionString
 			 * returns List<Dictionary<string, object>>
+			 * 
+			 * else if "AddPersistentBuff":
+			 * int
 			 * ...
 			 */
 			var modSA = SummonersAssociation.Instance;
@@ -244,6 +253,14 @@ namespace SummonersAssociation
 
 					var list = SummonersAssociation.SupportedMinions.Select(m => m.ConvertToDictionary(apiVersion)).ToList();
 					return list;
+				}
+				else if (message == "AddPersistentBuff") {
+					//New with v0.5.3
+					int buffID = Convert.ToInt32(args[1]);
+					if (buffID < 0 || buffID >= BuffLoader.BuffCount) throw new Exception("Invalid buff '" + buffID + "' registered");
+					if (ServerConfig.Instance.PersistentBuffs) {
+						SummonersAssociation.RegisterPersistentBuff(buffID);
+					}
 				}
 				else {
 					throw new Exception($"\"{message}\" is not an accepted call");

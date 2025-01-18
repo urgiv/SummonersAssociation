@@ -114,6 +114,11 @@ Mods: {
 					Tooltip: 如果开启，召唤物控制杖的准星在屏幕显示画面外将不会消失
 				}
 
+				PersistentBuffs: {
+					// Label: Enable Persistent Buffs
+					// Tooltip: If toggled, makes buffs that provide max minion or sentry slots such as {$ItemName.SummoningPotion} preserve on death or world exit
+				}
+
 				Headers.HintToClientConfig: 提示: 若要修改本地端设置，请按当前界面底部左侧的'<'箭头
 
 				Hint: {

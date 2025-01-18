@@ -114,6 +114,11 @@ Mods: {
 					Tooltip: Si está activado, hace que la retícula de la Varita de Control de Súbditos nunca desaparezca al salir del rango
 				}
 
+				PersistentBuffs: {
+					// Label: Enable Persistent Buffs
+					// Tooltip: If toggled, makes buffs that provide max minion or sentry slots such as {$ItemName.SummoningPotion} preserve on death or world exit
+				}
+
 				Headers.HintToClientConfig: Sugerencia: Para ir a la configuración del cliente que contiene ajustes de la interfaz, pulsa la flecha «<» en la parte inferior izquierda
 
 				Hint: {

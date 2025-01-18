@@ -114,6 +114,11 @@ Mods: {
 					Tooltip: Если этот параметр включен, цель посоха управления прислужниками никогда не исчезает при выходе за пределы досягаемости.
 				}
 
+				PersistentBuffs: {
+					// Label: Enable Persistent Buffs
+					// Tooltip: If toggled, makes buffs that provide max minion or sentry slots such as {$ItemName.SummoningPotion} preserve on death or world exit
+				}
+
 				Headers.HintToClientConfig: Подсказка: чтобы перейти к конфигурации клиента, нажмите стрелку «<» в левом нижнем углу.
 
 				Hint: {
