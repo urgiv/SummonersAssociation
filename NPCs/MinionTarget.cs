@@ -89,7 +89,7 @@ namespace SummonersAssociation.NPCs
 		}
 
 		public override void SetStaticDefaults() {
-			NPCID.Sets.NPCBestiaryDrawOffset[NPC.type] = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
+			NPCID.Sets.NPCBestiaryDrawOffset[NPC.type] = new NPCID.Sets.NPCBestiaryDrawModifiers() {
 				Hide = true, //Hides this NPC from the Bestiary
 			};
 

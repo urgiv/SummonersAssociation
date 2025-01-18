@@ -9,7 +9,7 @@ namespace SummonersAssociation
 	{
 		public override bool Active() => Config.Instance.InfoIcon;
 
-		public override string DisplayValue(ref Color displayColor) {
+		public override string DisplayValue(ref Color displayColor, ref Color displayShadowColor) {
 			Player player = Main.LocalPlayer;
 			double minionCount = Math.Round(player.slotsMinions, 2);
 			if (minionCount <= 0) {
@@ -24,7 +24,7 @@ namespace SummonersAssociation
 	{
 		public override bool Active() => Config.Instance.InfoIcon;
 
-		public override string DisplayValue(ref Color displayColor) {
+		public override string DisplayValue(ref Color displayColor, ref Color displayShadowColor) {
 			Player player = Main.LocalPlayer;
 			UISystem.GetSentryNameToCount(out int sentryCount, onlyCount: true);
 			if (sentryCount <= 0) {
