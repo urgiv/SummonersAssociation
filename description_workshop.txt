@@ -42,7 +42,7 @@ Targeting a location with the [b]Minion Control Rod[/b]:
 [b]Minion&Sentry Slots Icon[/b] - Displays the amount of minions/sentries currently summoned above your defense
 [b]Persistent Buffs[/b] - Summoning Potion, Bewitching Table, and War Table buffs will persist on death or world exit, allowing for a smoother experience
 [hr][/hr]
-Contains two configs: 'Server Config' contains settings related to the reticle from Minion Control Rod and Loadout Book speed, while 'Client Config' contains settings related to the UI and info icons
+Contains two configs: 'Server Config' contains settings related to the reticle from Minion Control Rod, Loadout Book, and vanilla tweaks, while 'Client Config' contains settings related to the UI and info icons
 
 If you experience issues with Minion Control Rods' reticle feature, let us know on the homepage; You can continue using this mod by disabling the feature in the 'Server Config'
 
